@@ -6,5 +6,5 @@ Put whatever text you want it into its own line in List.txt then run Main.py in 
 
 # To-do
 Make an installer
-Make a GUI
+Make a GUI 
 Make a more detailed readme. (This one is not very good)
