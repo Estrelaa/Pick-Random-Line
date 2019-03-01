@@ -1,16 +1,33 @@
 # This is the main file that runs the whole program. 
 
+import os
 import PickElement
 
+# Clears the terminal screen for both windows and Unix based systems
+def CleanTerminal():
+    UnusedVariable = os.system('cls')
+    UnusedVariable = os.system('clear')
+
+
 def menu():
-    print('Welcome to PRL! Please select a option below: ')
-    print (' ') # Blank line to make menu look nicer
-    print('1. Run program')
-    print('2. Select file')
-    print('3. Help')
-    print('4. Quit')
-    print('Your Selection: ')
-    UserSelection = int(input())
+    UserSelection = 0
+    while(True):
+        CleanTerminal()
+        print('Welcome to PRL! Please select a option below: ')
+        print (' ') # Blank line to make menu look nicer
+        print('1. Run program')
+        print('2. Select file')
+        print('3. Help')
+        print('4. Quit')
+        print('Your Selection: ')
+        try:
+            UserSelection = int(input())
+        except ValueError:
+            UnusedVariable = input('Please type a number to select one of the options')
+        if UserSelection > 0 and UserSelection < 5:
+            break
+        else:
+            UnusedVariable = input('Please type a number between the given range!')
     return UserSelection
 
 
@@ -29,6 +46,7 @@ def RunSelectedOption(UserOption):
         return 0
 
 
+# Main loop that runs the whole program
 def main():
     while(True):
         UserOption = menu()
