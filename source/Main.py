@@ -4,11 +4,13 @@ import os
 import PickElement
 
 # Clears the terminal screen for both windows and Unix based systems
+# We save the command as a variable so that it does not display a return code to the user 
 def CleanTerminal():
     UnusedVariable = os.system('cls')
     UnusedVariable = os.system('clear')
 
 
+# This functions display a menu for the user to select different options within the program
 def menu():
     UserSelection = 0
     while(True):
@@ -43,7 +45,7 @@ def RunSelectedOption(UserOption):
         quit()
     else:
         print('Did not reconise input! Please make sure you type one number!')
-        return 0
+        return 0    # Used in the main function to tell if user input is vaild or not.
 
 
 # Main loop that runs the whole program
@@ -51,7 +53,7 @@ def main():
     while(True):
         UserOption = menu()
         ReturnedValue = RunSelectedOption(UserOption)
-        if ReturnedValue != 0:
+        if ReturnedValue != 0:  # if the returned value is 0 Keep asking for vaild user input.
             break
     return print(ReturnedValue)
 
