@@ -7,7 +7,7 @@ import PickElement
 # We save the command as a variable so that it does not display a return code to the user 
 def CleanTerminal():
     UnusedVariable = os.system('cls')
-    UnusedVariable = os.system('clear')
+    # UnusedVariable = os.system('clear')
 
 
 # This functions display a menu for the user to select different options within the program
@@ -15,24 +15,25 @@ def menu():
     UserSelection = 0
     while(True):
         CleanTerminal()
-        print('Welcome to PRL! Please select a option below: ')
-        print (' ') # Blank line to make menu look nicer
-        print('1. Run program')
-        print('2. Select file')
-        print('3. Help')
-        print('4. Quit')
-        print('Your Selection: ')
+        print('''Welcome to PRL! Please select a option below:
+            1. Run program
+            2. Select file
+            3. Help
+            4. Quit\n
+            Your Selection: ''')
+        
         try:
             UserSelection = int(input())
         except ValueError:
-            UnusedVariable = input('Please type a number to select one of the options')
-        if UserSelection > 0 and UserSelection < 5:
+            UnusedVariable = input('Please type a number to select one of the options') # Waits for user inputs, gives user time to read the error
+        if UserSelection > 0 and UserSelection < 5: # If input is a vaild number in the menu break out of the menu function
             break
         else:
             UnusedVariable = input('Please type a number between the given range!')
     return UserSelection
 
 
+# Using the results from the menu function, do want the user wants 
 def RunSelectedOption(UserOption):
     if UserOption == 1:
         Selecion = PickElement.SelectRandomElementFromList()
