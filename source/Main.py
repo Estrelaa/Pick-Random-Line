@@ -4,7 +4,8 @@ import os
 import PickElement
 
 # Clears the terminal screen for both windows and Unix based systems
-# We save the command as a variable so that it does not display a return code to the user 
+# I save the command as a variable so that it does not display a return code to the user.
+# 'cls' is to clear the terminal on Windows with  'clear' used on Unix 
 def CleanTerminal():
     UnusedVariable = os.system('cls')
     # UnusedVariable = os.system('clear')
@@ -26,9 +27,10 @@ def menu():
             UserSelection = int(input())
         except ValueError:
             UnusedVariable = input('Please type a number to select one of the options') # Waits for user inputs, gives user time to read the error
+
         if UserSelection > 0 and UserSelection < 5: # If input is a vaild number in the menu break out of the menu function
             break
-        else:
+        elif UserSelection <= -1 or UserSelection >= 6:
             UnusedVariable = input('Please type a number between the given range!')
     return UserSelection
 
@@ -45,7 +47,7 @@ def RunSelectedOption(UserOption):
     elif UserOption == 4:
         quit()
     else:
-        print('Did not reconise input! Please make sure you type one number!')
+        print('Did not reconise input! Please make sure you type one number between 1 and 5 with no spaces!')
         return 0    # Used in the main function to tell if user input is vaild or not.
 
 
@@ -54,7 +56,7 @@ def main():
     while(True):
         UserOption = menu()
         ReturnedValue = RunSelectedOption(UserOption)
-        if ReturnedValue != 0:  # if the returned value is 0 Keep asking for vaild user input.
+        if ReturnedValue != 0:  # if the returned value is 0 do not break out of the loop which results in the menu function running again.
             break
     return print(ReturnedValue)
 
