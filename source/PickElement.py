@@ -1,4 +1,6 @@
-import json
+# This file stores the functions needed to read the .txt files, save the contents as a list varible
+# and then pick a random index in the list, returning the value of that index
+
 import random
 
 def UpdateSelectionInProgram():
@@ -8,8 +10,6 @@ def UpdateSelectionInProgram():
     return CurrentSelecion
 
 def SelectRandomElementFromList():
-    CurrentSelecion = UpdateSelectionInProgram()
+    CurrentSelecion = UpdateSelectionInProgram()    # Run function then save the list that the the function makes
     ChosenChoice = random.choice(CurrentSelecion)
     return ChosenChoice
-
-UpdateSelectionInProgram()
