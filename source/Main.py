@@ -41,7 +41,8 @@ def RunSelectedOption(UserOption):
         Selecion = PickElement.SelectRandomElementFromList()
         return Selecion
     elif UserOption == 2:
-        pass
+        PickElement.SelectFileInDict()
+        return 0
     elif UserOption == 3:
         pass
     elif UserOption == 4:

@@ -3,13 +3,25 @@
 
 import random
 
+FileName = 'list.txt' 
+FileNameDefault = 'list.txt'
+
 def UpdateSelectionInProgram():
     CurrentSelecion = []
-    with open("list.txt", "r") as read_file:
+    with open(FileName, "r") as read_file:
         CurrentSelecion = read_file.readlines()
     return CurrentSelecion
+
 
 def SelectRandomElementFromList():
     CurrentSelecion = UpdateSelectionInProgram()    # Run function then save the list that the the function makes
     ChosenChoice = random.choice(CurrentSelecion)
     return ChosenChoice
+
+
+def SelectFileInDict():
+    print('''Type the name of the file you want to use
+    NOTE: Its needs to be in the same loctaion as list.txt and include .txt at the end!
+    If it is not or you have just loaded the program it will "list.txt"\n''')
+
+    FileName = input('Name of file: ')
