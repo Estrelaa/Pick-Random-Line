@@ -18,7 +18,8 @@ def SelectRandomElementFromList():
     ChosenChoice = random.choice(CurrentSelecion)
     return ChosenChoice
 
-
+# This functions connects to option 2 in the menu function. This does not work yet as Filename is not being updated.
+# This is due to the file closing when reentering the the menu loop. 
 def SelectFileInDict():
     print('''Type the name of the file you want to use
     NOTE: Its needs to be in the same loctaion as list.txt and include .txt at the end!
